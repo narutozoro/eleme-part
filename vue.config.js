@@ -1,0 +1,25 @@
+module.exports = {
+    devServer:{
+        proxy:{
+            '/ele':{
+                target:'https://h5.ele.me',
+                secure:false,
+                changeOrigin:true,
+                pathRewrite:{'^/ele':''},
+                cookieDomainRewrite:{
+                    "*":"127.0.0.1"
+                },
+            },
+            "/map":{
+                target:"http://api.map.baidu.com",
+                ws:false,
+                changeOrigin:true,
+                pathRewrite:{"^/map":""},
+                cookieDomainRewrite:{
+                    "*":"127.0.0.1"
+                },
+            },
+        },
+        port:3000
+    }
+}
